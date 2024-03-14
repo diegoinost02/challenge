@@ -1,0 +1,20 @@
+<mat-dialog-content>
+    <form [formGroup]="noteForm" (ngSubmit)="createNote()">
+        <P>Add note</P>
+        <input
+            formControlName="description"
+            type="text"
+            placeholder="title"
+            >
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <!-- <button id="close-btn" mat-button mat-dialog-close matTooltip="Cancel">
+    </button> -->
+
+    <button type="submit" id="edit-btn" mat-button (click)="createNote()" matTooltip="Create">
+        Create
+    </button>
+    
+</mat-dialog-actions>

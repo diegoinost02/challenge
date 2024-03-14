@@ -1,0 +1,133 @@
+section{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    /* gap: 10px; */
+    height: 100vh;
+    width: 80vw;
+}
+h1{
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+.categories-container{
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    gap: 20px;
+}
+.category{
+    cursor: pointer;
+    background-color: rgb(234, 234, 234);
+    color: rgb(83, 83, 83);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    min-width: 110px;
+    text-align: center;
+
+    p{
+        margin: 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+.category:hover{
+    background-color: rgb(191, 191, 191);
+}
+.notes-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+@media(width <= 400px) {
+    .notes-container{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+.note{
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(232, 232, 69);
+    border: .5px solid black;
+
+    h3{
+        margin: 0;
+    }
+
+    h3, p{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+.buttons-container{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+}
+
+.edit-btn, .categories-btn{
+    cursor: pointer;
+    background-color: rgb(220, 220, 220);
+    color: black;
+    border-radius: 25px;
+    font-weight: 500;
+    border: 1px solid rgb(148, 148, 148);
+    padding: 5px 20px;
+}
+
+.edit-btn:hover, .categories-btn:hover{
+    background-color: rgb(49, 49, 49);
+    color: rgb(241, 241, 241);
+}
+.overlay{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(28, 28, 28);
+    /* gap: 5px; */
+    color: white;
+}
+
+button{
+    padding: 0;
+    cursor: pointer;
+    border: none;
+}
+.contains-category-btn{
+    min-width: 80px;
+    border: .5px solid black;
+    background-color: rgb(70, 70, 70);
+    color: white;
+    margin: 0;
+    padding: 5px;
+}
+.category-btn{
+    min-width: 80px;
+    border: .5px solid black;
+    background-color: rgb(70, 70, 70);
+    opacity: .6;
+    color: white;
+    margin: 0;
+    padding: 5px;
+}
+.contains-category-btn:hover, .category-btn:hover{
+    background-color: rgb(95, 95, 95);
+}
+.category-btn:hover{
+    opacity: .8;
+}

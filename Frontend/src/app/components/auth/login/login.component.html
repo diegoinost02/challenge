@@ -1,0 +1,41 @@
+<section>
+    <form [formGroup]="loginForm" class="form" novalidate (ngSubmit)="login()">
+        <h1>Log in</h1>
+        <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input
+            formControlName="username"
+            type="text"
+            name="username"
+            matInput
+            placeholder="Enter your username"
+            autocomplete="off">
+
+        </mat-form-field>
+
+
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+                formControlName="password"
+                name="password"
+                matInput
+                [type]="hidePassword ? 'password' : 'text'"
+                placeholder="Enter yout password"
+                autocomplete="off">
+                <button
+                mat-icon-button
+                matSuffix
+                type="button"
+                (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword"
+                class="button-view-password">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <button class="button-submit" type="submit">
+            Log in   
+        </button>
+        <a routerLink="/register">Register</a>
+    </form>
+</section>

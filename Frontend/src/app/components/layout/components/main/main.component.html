@@ -1,0 +1,60 @@
+<section>
+    <div class="container">
+        <h2>Categories</h2>
+        <div class="categories-container">
+            <button (click)="getNotes()" class="category">
+                <p> All </p>
+            </button>
+            @for (category of categories$(); track $index) {
+                <button (click)="categoryFilter(category)" class="category">
+                    <p> {{ category.name }} </p>
+                </button>
+            }
+        </div>
+
+        <h1>Your notes</h1>
+        <div class="notes-container">
+
+            @for (note of notes$(); track $index) {
+                <div class="note">
+                    <p>{{ note.description }}</p>        
+                    <div class="buttons-container">
+                        <button (click)="editNote(note)" class="edit-btn">Edit</button>
+                        <button
+                            class="categories-btn"
+                            (click)="openNoteOverlay(note.id)"
+                            #categoriesOverlay>
+                            Categories
+                        </button>
+
+                        <ng-template
+                            cdkConnectedOverlay
+                            [cdkConnectedOverlayOrigin]="categoriesOverlay"
+                            [cdkConnectedOverlayOpen]="note.id === noteToOpenOverlay"
+                            (overlayOutsideClick)="openNoteOverlay(-1)">
+                            <ul class="overlay">
+                                <!-- @for (category of categories$(); track $index) {
+                                    @if (containsCategory(note, category)) {
+                                        <button class="contains-category-btn"> {{ category.name }} </button>
+                                    } @else {
+                                        <button class="category-btn"> {{ category.name }} </button>
+                                    }
+                                } -->
+                                @for (category of note.categories; track $index) {
+                                    <button (click)="removeCategory(note, category)" class="contains-category-btn"> {{ category.name }} </button>
+                                }
+                                @for (category of categories$(); track $index) {
+                                    @if (!containsCategory(note, category)) {
+                                        <button (click)="addCategory(note, category)" class="category-btn"> {{ category.name }} </button>
+                                    }
+                                }
+                            </ul>
+                        </ng-template>
+
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</section>

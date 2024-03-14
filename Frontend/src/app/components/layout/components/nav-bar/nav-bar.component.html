@@ -1,0 +1,9 @@
+<nav>
+    @if (!listArchivedNotes) {
+        <button (click)="getArchivedNotes()">Archived notes</button>
+    } @else {
+        <button (click)="getNotes()">Notes</button>
+    }
+    <button (click)="openCategoryForm()">Add category</button>
+    <button (click)="openNoteForm()">Add note</button>
+</nav>

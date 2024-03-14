@@ -1,0 +1,32 @@
+<mat-dialog-content>
+    <form [formGroup]="noteForm" (ngSubmit)="editNote()">
+        <P>Note</P>
+        <input
+            formControlName="description"
+            type="text"
+            placeholder="title"
+            >
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+    @if (noteData.enabled === true) {
+        <button class="archive-btn" mat-button (click)="archiveNote()">
+            Archive
+        </button>
+    } @else {
+        <button class="archive-btn" mat-button (click)="unarchiveNote()">
+            Unarchive
+        </button>
+    }
+
+    <button class="delete-btn" mat-button (click)="deleteNote()">
+        Delete
+    </button>
+
+    <button class="update-btn" type="submit" mat-button (click)="editNote()">
+        Update
+    </button>
+    
+</mat-dialog-actions>

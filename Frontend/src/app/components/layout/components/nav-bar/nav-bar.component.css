@@ -1,0 +1,21 @@
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    background-color: rgb(42, 42, 42);
+    padding: 30px 0;
+}
+button{
+    cursor: pointer;
+    width: 130px;
+    background-color: rgb(219, 180, 24);
+    color: rgb(42, 42, 42);
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: rgb(240, 207, 73);
+}
